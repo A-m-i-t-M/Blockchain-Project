@@ -1,0 +1,333 @@
+/* --- CSS Variables --- */
+:root {
+    /* Dark Theme Base */
+    --background-color: #121212; /* Classic dark theme background */
+    --card-background: #1e1e1e;  /* Slightly lighter card background */
+    --text-color: #e0e0e0;       /* Off-white for primary text */
+    --text-muted: #b0b0b0;      /* Light grey for muted text/sub-texts */
+    --border-color: #333333;   /* Darker grey border, subtle */
+
+    /* Purple Accents - Used more selectively */
+    --accent-purple: #9b59b6;       /* Main Purple for key accents */
+    --accent-purple-dark: #8e44ad;  /* Darker Purple for hover */
+    --accent-purple-light: #bb86fc; /* Lighter Purple for highlights/focus if needed */
+
+    /* Action/Status Colors */
+    --primary-action-bg: var(--accent-purple); /* Connect wallet, primary CTAs */
+    --primary-action-text: #ffffff;
+    --secondary-action-bg: #4a4a4a; /* Dark grey for secondary buttons */
+    --secondary-action-bg-hover: #5a5a5a;
+    --secondary-action-text: #e0e0e0;
+
+    --success-color: #28a745;    /* Green for success */
+    --danger-color: #dc3545;     /* Red for errors */
+    --warning-color: #ffc107;    /* Orange for warnings */
+    --warning-text-dark: #333;   /* Dark text for warning button */
+
+
+    /* Other UI Elements */
+    --header-bg: #1f1f1f; /* Slightly different dark for header */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,.3); /* Adjusted shadow for dark theme */
+    --shadow: 0 4px 8px rgba(0,0,0,.4);
+    --border-radius: .375rem;
+}
+
+/* --- General Styles --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- Header --- */
+.app-header {
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: var(--text-color); /* Main text color for header */
+    display: flex;
+    align-items: center;
+}
+
+.icon-header {
+    margin-right: 10px;
+    font-size: 2rem;
+    vertical-align: middle;
+    color: var(--accent-purple); /* Purple accent for header icon */
+}
+
+.wallet-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.account-display {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-muted);
+}
+.account-display .status-success {
+    color: var(--success-color) !important;
+    font-weight: bold;
+}
+
+
+/* --- Main Content & Sections --- */
+main.container {
+    padding-bottom: 2rem;
+}
+
+.action-section.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.action-section h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color); /* Main text color for section titles */
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-purple); /* Purple accent for border */
+    display: flex;
+    align-items: center;
+}
+.action-section h2 .material-icons-outlined {
+    margin-right: 10px;
+    color: var(--accent-purple); /* Purple accent for section icon */
+}
+
+.action-subsection {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+.action-subsection:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.action-subsection h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-color); /* Main text color */
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+.action-subsection h3 .material-icons-outlined {
+    margin-right: 8px;
+    font-size: 1.4rem;
+    color: var(--accent-purple); /* Purple accent for subsection icon */
+}
+
+/* --- Forms --- */
+label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: var(--text-muted); /* Muted text for labels */
+    font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    padding: .625rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--background-color); /* Input bg slightly darker than card */
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    appearance: none;
+    border-radius: var(--border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    color: var(--text-color);
+    background-color: var(--card-background);
+    border-color: var(--accent-purple-light); /* Light purple focus border */
+    outline: 0;
+    /* For box-shadow with CSS var in RGBA, define --accent-purple-light-rgb: R, G, B; in :root */
+    box-shadow: 0 0 0 .25rem rgba(187, 134, 252, .25); /* Example using #bb86fc for shadow */
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23bb86fc' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); /* Light purple arrow */
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .625rem 1.25rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    transition: all .15s ease-in-out;
+    margin-top: 0.5rem;
+}
+.btn .material-icons-outlined {
+    margin-right: 0.5em;
+    font-size: 1.2em;
+}
+
+/* Connect Wallet button and other key primary actions */
+.btn-primary {
+    color: var(--primary-action-text);
+    background-color: var(--primary-action-bg); /* Purple */
+    border-color: var(--primary-action-bg);
+}
+.btn-primary:hover {
+    color: var(--primary-action-text);
+    background-color: var(--accent-purple-dark);
+    border-color: var(--accent-purple-dark);
+}
+
+/* Standard action buttons like Add, Grant, Access */
+.btn-secondary {
+    color: var(--secondary-action-text);
+    background-color: var(--secondary-action-bg); /* Dark Grey */
+    border-color: var(--secondary-action-bg);
+}
+.btn-secondary:hover {
+    color: var(--secondary-action-text);
+    background-color: var(--secondary-action-bg-hover);
+    border-color: var(--secondary-action-bg-hover);
+}
+
+/* Revoke button */
+.btn-warning {
+    color: var(--warning-text-dark); /* Dark text for yellow button */
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+}
+.btn-warning:hover {
+    color: var(--warning-text-dark);
+    background-color: #e6a000; /* Darker yellow */
+    border-color: #e6a000;
+}
+
+button:disabled {
+    background-color: var(--border-color);
+    border-color: var(--border-color);
+    color: var(--text-muted);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+button:disabled .material-icons-outlined {
+    color: var(--text-muted);
+}
+
+/* --- Status Messages --- */
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    padding: .75rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+    text-align: left;
+}
+.status-message .status {
+    font-weight: normal;
+}
+
+.status-neutral { color: var(--text-muted); background-color: transparent; border-color: transparent; }
+.status-processing { color: var(--accent-purple-light); border-color: var(--accent-purple); background-color: rgba(187, 134, 252, .1); } /* Light purple bg */
+.status-success { color: var(--success-color); border-color: var(--success-color); background-color: rgba(40, 167, 69, .1); }
+.status-error { color: var(--danger-color); border-color: var(--danger-color); background-color: rgba(220, 53, 69, .1); }
+
+/* --- Horizontal Rule --- */
+.section-divider {
+    margin: 2.5rem 0;
+    border: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    background-color: var(--header-bg); /* Match header background */
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 0.875rem;
+}
+footer p {
+    margin: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .wallet-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+    .icon-header {
+        font-size: 1.75rem;
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+        max-width: none;
+    }
+}
